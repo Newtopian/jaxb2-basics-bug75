@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<!DOCTYPE xml>
+<jxb:bindings version="1.0"
+	xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	>
+	<jxb:bindings schemaLocation="SimpleGraph.xsd">
+
+		<jxb:bindings node="//xs:complexType[@name='Graph']">
+			<jxb:bindings node="//xs:element[@name='startNode']">
+				<jxb:property>
+					<jxb:baseType name="info.newtopian.schemas.jaxb2_basics.simplegraph.Node"/>
+				</jxb:property>
+			</jxb:bindings>
+		</jxb:bindings>
+
+		<jxb:bindings node="//xs:complexType[@name='Edge']">
+			<jxb:bindings node="//xs:element[@name='linksToNode']">
+				<jxb:property>
+					<jxb:baseType name="info.newtopian.schemas.jaxb2_basics.simplegraph.Node"/>
+				</jxb:property>
+			</jxb:bindings>
+			<jxb:bindings node="//xs:element[@name='linksFromNode']">
+				<jxb:property>
+					<jxb:baseType name="info.newtopian.schemas.jaxb2_basics.simplegraph.Node"/>
+				</jxb:property>
+			</jxb:bindings>
+		</jxb:bindings>
+
+	</jxb:bindings>
+</jxb:bindings>

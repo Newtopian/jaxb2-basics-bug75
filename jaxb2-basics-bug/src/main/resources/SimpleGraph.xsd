@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://newtopian.info/schemas/jaxb2-basics/simplegraph"
+	xmlns:graph="http://newtopian.info/schemas/jaxb2-basics/simplegraph"
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+	<complexType name="Edge">
+		<sequence>
+			<element name="edgeName" type="string" />
+			<element name="linksToNode" type="IDREF" />
+			<element name="linksFromNode" type="IDREF"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="Node">
+		<sequence>
+			<element name="edge" type="graph:Edge" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+		<attribute name="messageID" type="string" />
+		<attribute name="id" type="ID" />
+	</complexType>
+
+	<complexType name="Graph">
+		<sequence>
+			<element name="startNode" type="IDREF" />
+			<element name="nodeList">
+				<complexType>
+					<sequence>
+						<element name="node" type="graph:Node" minOccurs="1" maxOccurs="unbounded" />
+					</sequence>
+				</complexType>
+			</element>
+		</sequence>
+	</complexType>
+
+</schema>
